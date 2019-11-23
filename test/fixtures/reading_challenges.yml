@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: reading_challenges
+#
+#  id           :integer          not null, primary key
+#  book_title   :string
+#  comment      :string
+#  reading_date :date
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  book_title: MyString
+  comment: MyString
+  reading_date: 2019-04-30
+
+two:
+  book_title: MyString
+  comment: MyString
+  reading_date: 2019-04-30

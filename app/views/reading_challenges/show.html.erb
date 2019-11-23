@@ -1,0 +1,32 @@
+<%# <main role="main" class="container"> %>
+<div class="container-box">
+
+    <div class="banner"></div>
+    <br><br>
+    <div class="header-text">
+        <span class="mytext1"><h1 style="color:#00cccc">30 Books Reading Challenge <i class="fa fa-eye" aria-hidden="true"></i></h1></span>
+    </div>
+    <hr>
+    <br>
+    <p>
+        <b>Book Title:</b> <%= @reading_challenge.book_title %>
+    </p>
+    
+    <p>
+        <b>Comment:</b> <%= @reading_challenge.comment %>
+    </p>
+    
+    <p>
+        <b>Reading Date:</b> <%= @reading_challenge.reading_date %>
+    </p>
+
+    <p style="text-align:right">
+        <%= link_to '<i class="fa fa-pen" aria-hidden="true"></i> Edit'.html_safe, edit_reading_challenge_path(@reading_challenge) %>
+    </p>
+
+    <p style="text-align:left">
+        <%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Back'.html_safe, reading_challenges_path %>
+    </p>
+    
+</div>
+<%# </main> %>

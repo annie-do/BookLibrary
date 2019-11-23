@@ -1,0 +1,31 @@
+<% provide(:title, 'index reviews') %>
+<main role="main" class="container">
+
+<h1>Reviews</h1>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Rating</th>
+      <th scope="col">Comment</th>
+      <th scope="col">Book Id</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @review.each do |review| %> 
+    <tr>
+      
+      <td><%= review.rating%></td>
+      <td><%= review.comment%> </td>
+      <td><%= review.book_id%> </td>
+<td>
+       <%= link_to "show", review_path(review)%> 
+       <%= link_to "destroy", review_path(review), method: :delete %>
+       </td>
+    </tr>
+   <%end%>
+  <%= link_to 'New Review', new_review_path %>
+  </tbody>
+</table>
+</main><!-- /.container -->

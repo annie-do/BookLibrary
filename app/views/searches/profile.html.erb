@@ -1,0 +1,41 @@
+<p>
+    <img src = <%= @book.cover_url%>
+                     width= "130"
+                     height="200">
+</p>
+    <h1><%= @book.title %></h1>
+    <b>Author:</b> <%= @book.author%>
+    <b>Price:</b> $<%= @book.price%>
+    <b>Genre:</b> <%= @book.genre%>
+    <b>Rating:</b> __ out of 5 stars
+    <b>Buy Book</b>
+</p>
+
+<p><b>Summary:</b> <%= @book.summary%></p>
+
+<table class="table table-sm">
+     <thead>
+       <tr>
+         <th scope="col">Rating</th>
+         <th scope="col">Comment</th>
+         <th scope="col"></th>
+       </tr>
+     </thead>
+     <tbody>
+      <% @book.critiques.each do |review| %>
+         <tr>
+           <td> <%= review.rating%> </td>
+           <td> <%= review.comment%> </td>
+         </tr>
+      <% end %>
+     </tbody>
+</table>
+<p><%= link_to 'New review', new_review_path(@book)%></p>
+<% if account_signed_in? %>
+  <% if current_account.admin? %>
+    <p><%= link_to 'Edit Book', edit_book_path%></p>
+    <p><%= link_to 'Delete Book', book_path(@book), method: :delete%></p>
+  <% end %>
+<% end %>
+
+<p><%=link_to 'Store', search_path %></p> 

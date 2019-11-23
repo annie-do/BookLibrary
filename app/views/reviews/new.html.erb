@@ -1,0 +1,13 @@
+<% provide(:title, 'Review') %>
+<main role="main" class="container">
+ <h1>Review</h1>
+
+<%= render 'form', book_id: @book.id, review: @review %>
+
+<p>
+    <%= link_to 'Back', reviews_path%>
+</p> 
+  
+ 
+
+</main><!-- /.container --> 

@@ -1,0 +1,97 @@
+<% provide(:title, 'Buy a Subscription') %>
+
+
+<p>
+So you would like to buy a Subscription.
+</p>
+<p>
+The Subscription is $19:99 permonth.
+</p>
+<p>
+You will be redirected to our paypal merchant then will be redirected to the home page with comformation of your purchase.
+</p>
+
+
+<%= form_tag do %>
+<%
+
+priceO = ["19.99", "34.99"]
+%>
+
+    
+	  <p>
+	   <%= radio_button_tag(:choice, "0") %>
+	   <%= label_tag(:onemonth, priceO[0]) %>
+	  </p>
+    
+	  <p>
+	   <%= radio_button_tag(:choice, "1") %>
+	   <%= label_tag(:twomonths, priceO[1]) %>
+	  </p> 
+
+      <%= submit_tag("Submit Answer") %>
+
+    
+
+<% end %>
+
+ <div class="container">
+         <hr>
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn-lg btn-block" data-toggle="modal" data-target="#myModal"><i class="fa fa-shopping-cart" aria-hidden="true"></i> BUY NOW</button>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Order Confirmation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                        Your order of  has been received and will be processed once your payment has been received.
+                        </p>
+                        <p>
+                        <span style="color:black"><b>THANK YOU FOR YOUR PURCHASE!</b></span>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <%= link_to "Continue Shopping", search_path %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<br>
+<div class="container">
+    <hr>
+		<div class="row text-center">
+	        <div class="col">
+	        <div class="counter">
+      <i class="fa fa-code fa-2x"></i>
+      <h2 class="timer count-title count-number" data-to="100" data-speed="1500"></h2>
+       <p class="count-text ">Book Rented</p>
+    </div>
+	        </div>
+              <div class="col">
+               <div class="counter">
+      <i class="fa fa-coffee fa-2x"></i>
+      <h2 class="timer count-title count-number" data-to="1700" data-speed="1500"></h2>
+      <p class="count-text ">Happy Clients</p>
+    </div>
+              </div>
+              <div class="col">
+                  <div class="counter">
+      <i class="fa fa-lightbulb-o fa-2x"></i>
+      <h2 class="timer count-title count-number" data-to="11900" data-speed="1500"></h2>
+      <p class="count-text ">Book Bought</p>
+    </div></div>
+              <div class="col">
+              <div class="counter">
+      <i class="fa fa-bug fa-2x"></i>
+      <h2 class="timer count-title count-number" data-to="157" data-speed="1500"></h2>
+      <p class="count-text ">Book Available</p>
+    </div>
+    </div>
+    </div>
+</div>

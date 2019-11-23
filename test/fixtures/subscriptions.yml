@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: subscriptions
+#
+#  id         :integer          not null, primary key
+#  end_date   :datetime
+#  price      :float
+#  start_date :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  account_id :integer
+#
+# Indexes
+#
+#  index_subscriptions_on_account_id  (account_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1.5
+  start_date: 2019-04-10 05:18:41
+  end_date: 2019-04-10 05:18:41
+
+two:
+  price: 1.5
+  start_date: 2019-04-10 05:18:41
+  end_date: 2019-04-10 05:18:41

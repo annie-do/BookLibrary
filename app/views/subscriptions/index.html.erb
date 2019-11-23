@@ -1,0 +1,20 @@
+<table class="table table-sm">
+     <thead>
+       <tr>
+         <th scope="col">Start Date</th>
+         <th scope="col">End Date</th>
+         <th scope="col">Price</th>
+         <th scope="col"></th>
+       </tr>
+     </thead>
+     <tbody>
+      <% @subscriptions.each do |subscription| %>
+         <tr>
+           <td> <%= subscription.start_date %> </td>
+           <td> <%= subscription.end_date %> </td>
+           <td> <%= subscription.price %> </td>
+           <td> <p><%= link_to 'Cancel Subscription', subscription_path(subscription) %></p></td>
+         </tr>
+      <% end %>
+     </tbody>
+</table>

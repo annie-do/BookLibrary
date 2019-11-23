@@ -1,0 +1,29 @@
+    
+ <%= form_with model: review, local: true do |form| %>
+ <%= hidden_field_tag(:book_id, book_id) %> 
+  <div class="field">
+   <%= form.label :rating %>
+   <%= form.text_field :rating, class: 'form-control' %> 
+    <% if review.errors.full_messages_for(:rating).any? %>
+        <div class="invalid-feedback">
+          <%= review.errors.full_messages_for(:rating).each do |error_message| %>
+            <%= error_message %>.
+          <%end%>
+        </div>
+    <%end%>  
+  </div>
+  <div class="field">
+   <%= form.label :comment %>
+   <%= form.text_field :comment, class: 'form-control' %>
+    <% if review.errors.full_messages_for(:comment).any? %>
+        <div class="invalid-feedback">
+          <%= review.errors.full_messages_for(:comment).each do |error_message| %>
+            <%= error_message %>.
+          <%end%>
+        </div>
+    <%end%>  
+  </div>
+    <div class="actions">
+    <%= form.submit 'Submit',class: 'btn btn-primary' %> 
+  </div>	
+<% end %>

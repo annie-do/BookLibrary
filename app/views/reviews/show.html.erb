@@ -1,0 +1,14 @@
+<% provide(:title, 'show review') %>
+<main role="main" class="container">
+<h2><%= link_to @review.media.book_id, book_url(@review.media) %></h2>
+<p>
+    <b>rating:</b> <%= @review.rating%>
+</p>
+
+<p>
+    <b>comment:</b> <%= @review.comment%>
+</p>
+<p>
+    <%= link_to 'Back', reviews_path%> |
+</p>
+ </main><!-- /.container -->

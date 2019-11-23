@@ -1,0 +1,64 @@
+<%# <main role="main" class="container"> %>
+
+<div class="banner"></div>
+<br><br>
+<div class="header-text">
+    <span class="mytext1"><h1 style="color:#00cccc">30 Books Reading Challenge</h1></span>
+</div>
+<div class="submit-wrapper">
+    <p style="text-align: right">
+        <%= link_to '+ Add Book', new_reading_challenge_path %>
+    </p>
+</div>
+<table class="table table-sm">
+    <thead>
+        <tr>
+        <th scope="col">Progress</th>
+        <th scope="col">Day</th>
+        <th scope="col">Date</th>
+        <th scope="col">Book Title</th>
+        <th scope="col">Comment</th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <span style="color:white"><%= @percent = 0 %></span>
+        <span style="color:white"><%= @day = 0 %></span>
+        <% @reading_challenges.each do |challenge| %>
+            <tr>
+                <span style="color:white"><%= (@percent += 3.333).round(2) %></span>
+                 <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                            aria-valuemin="0" aria-valuemax="100" style="width: <%= "#{@percent}" %>%">
+                            <% if @day == 30 %>
+                                <span> <%= @percent.round(1)  %> Complete</span>
+                            <% else %>
+                                <span> <%= @percent.round(2)  %> Complete</span>
+                            <% end %>
+                        </div>
+                    <div>
+                </td>
+                <td><%= @day += 1 %></td>
+                <% if @day == 30 %>
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> Congrat! You have completed the 30 days reading challenge.
+                    </div>
+                <% end %>
+                <td><%= challenge.reading_date %></td>
+                <td><%= challenge.book_title%></td>
+                <td><%= challenge.comment %></td>
+                <td>
+                    <%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, reading_challenge_path(challenge) %> 
+                    <br>
+                    <%= link_to '<i class="fa fa-pen" aria-hidden="true"></i>'.html_safe, edit_reading_challenge_path(challenge) %>
+                    <br>
+                    <%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, reading_challenge_path(challenge), method: :delete %>                 
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%# </main> %>
+

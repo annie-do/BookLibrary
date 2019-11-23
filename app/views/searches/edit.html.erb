@@ -1,0 +1,14 @@
+<section class="bg-light text-center p-5 mt-4">
+    <div class="container p-3">
+        <h3 class="text-grey"><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout</h3>
+    </div>
+</section>
+<br><br>
+    
+<h5><p>You have successfully purchased <%= @book.title %>.</p></h5>
+<br>
+<div class="action" style="text-align:right">
+    <%= link_to 'Continue shopping', search_path, class: 'btn btn-primary' %>
+</div>
+
+<%# </main> %>

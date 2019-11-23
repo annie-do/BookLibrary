@@ -1,0 +1,152 @@
+<div class="alert alert-success" role="alert">
+  Congrat! You have received 10% discount on your total.
+</div>
+
+<section class="bg-light text-center p-5 mt-4">
+    <div class="container p-3">
+        <h3 class="text-grey"><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout</h3>
+    </div>
+</section>
+<br><br>
+<div class="stepwizard">
+    <div class="stepwizard-row">
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">1</button>
+            <p>Cart</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">2</button>
+            <p>Shipping</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-primary btn-circle" disabled="disabled">3</button>
+            <p>Payment</p>
+        </div> 
+    </div>
+</div>
+<br><br>
+<body>
+    <div class="card-header bg-light text-dark">
+        <h3><%= @book.title%></h3>
+    </div>
+    <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-2 text-center">
+                    <img src = <%= @book.cover_url %> width="165" height="250">
+                </div>
+                <div class="col-12 text-lg-center col-lg 12 text-md-left col-md-6">
+                <h4>Summary</h4>
+
+                    <div id="summary">
+                        <p class="collapse" id="collapseSummary">
+                            <%= @book.summary%>
+                        </p>
+                        <a class="collapsed" data-toggle="collapse" href="#collapseSummary" aria-expanded="false" aria-controls="collapseSummary"></a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+                    <div class="col-6 col-sm-6 col-md-6 text-md-right" style="padding-top: 5px">
+                        Price: <h3><strong>$<%= @book.price%><span class="text-muted"></span></strong></h3>
+                    </div>
+                </div>
+            </div>
+            <hr>
+    </div>
+    <div class="card-footer">
+
+        <%= form_tag({controller: "searches", action: "checkCouponCode"}, method: "get") do %>
+            <div class="field">
+                <%= text_field_tag (:code), nil, placeholder: @coupon_code %>
+            </div>
+            <br>
+            <div class="actions">
+                <%= submit_tag 'Coupon Code', class: 'btn btn-primary' %>
+            </div>
+        <% end %>
+ 
+        <div class="pull-right" style="margin: 10px">
+            <div class="pull-right" style="margin: 5px">
+                <br>
+                <p>
+                    Subtotal: <b>$<%= @book.price%></b>
+                </p>
+                <p>
+                    Shipping $ Handling: <b>$4.98</b>
+                </p>
+                <p>
+                    Tax: <b>$1.78</b>
+                </p>
+                <p>
+                ____________________________
+                </p>
+                
+                <p>
+                    <h5><span style="color:orange">Discount: <b>10%</b></span></h5>
+                    <h6><span style="color:black">Original Total: <b>$<%= (@book.price + 1.78 + 4.98).round(2) %></b></span></h6>
+                    <h4><span style="color:red">Current Total: <b>$<%= ((@book.price + 1.78 + 4.98) * 0.90).round(2) %></b></span></h4>
+                    <h6><span style="color:green">Estimated Saving: <b>$<%= ((@book.price + 1.78 + 4.98) * 0.10).round(2) %></b></span></h6>
+                </p>
+            </div>
+        </div>
+    </div>
+  <p></p>
+    <div class="container">
+         <hr>
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn-lg btn-block" data-toggle="modal" data-target="#myModal"><i class="fa fa-shopping-cart" aria-hidden="true"></i> BUY NOW</button>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Order Confirmation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                        Your order of <b><%= @book.title%></b> has been received and will be processed once your payment has been received.
+                        </p>
+                        <p>
+                        <span style="color:black"><b>THANK YOU FOR YOUR PURCHASE!</b></span>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <%= link_to "Go to confirmation page", cart_path %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<br>
+<div class="container">
+    <hr>
+		<div class="row text-center">
+	        <div class="col">
+	        <div class="counter">
+      <i class="fa fa-code fa-2x"></i>
+      <h2 class="timer count-title count-number" data-to="100" data-speed="1500"></h2>
+       <p class="count-text ">Book Rented</p>
+    </div>
+	        </div>
+              <div class="col">
+               <div class="counter">
+      <i class="fa fa-coffee fa-2x"></i>
+      <h2 class="timer count-title count-number" data-to="1700" data-speed="1500"></h2>
+      <p class="count-text ">Happy Clients</p>
+    </div>
+              </div>
+              <div class="col">
+                  <div class="counter">
+      <i class="fa fa-lightbulb-o fa-2x"></i>
+      <h2 class="timer count-title count-number" data-to="11900" data-speed="1500"></h2>
+      <p class="count-text ">Book Bought</p>
+    </div></div>
+              <div class="col">
+              <div class="counter">
+      <i class="fa fa-bug fa-2x"></i>
+      <h2 class="timer count-title count-number" data-to="157" data-speed="1500"></h2>
+      <p class="count-text ">Book Available</p>
+    </div>
+    </div>
+    </div>
+</div>

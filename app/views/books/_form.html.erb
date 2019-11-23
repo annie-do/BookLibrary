@@ -1,0 +1,68 @@
+<%= form_with model: book, local: true do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control' %>
+    <% if book.errors.full_messages_for(:title).any? %>
+      <div class="invalid-feedback">
+        <%= book.errors.full_messages_for(:title).each do |error_message| %>
+          <%= error_message %>.
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author, class: 'form-control' %>
+    <% if book.errors.full_messages_for(:author).any? %>
+      <div class="invalid-feedback">
+        <%= book.errors.full_messages_for(:author).each do |error_message| %>
+          <%= error_message %>.
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :summary %>
+    <%= form.text_field :summary, class: 'form-control' %>
+    <% if book.errors.full_messages_for(:summary).any? %>
+      <div class="invalid-feedback">
+        <%= book.errors.full_messages_for(:summary).each do |error_message| %>
+          <%= error_message %>.
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, class: 'form-control' %>
+    <% if book.errors.full_messages_for(:price).any? %>
+      <div class="invalid-feedback">
+        <%= book.errors.full_messages_for(:price).each do |error_message| %>
+          <%= error_message %>.
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cover_url %>
+    <%= form.text_field :cover_url, class: 'form-control' %>
+    <% if book.errors.full_messages_for(:cover_url).any? %>
+      <div class="invalid-feedback">
+        <%= book.errors.full_messages_for(:cover_url).each do |error_message| %>
+          <%= error_message %>.
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= form.label :genre%>
+  <%= form.select :genre, ["mystery","fantasy", "horror", "adventure", "action", "romance", "nonfiction", "comedy", "childrens", "scifi", "religious", "graphic", "thriller", "biography", "literature"]%>
+
+  <div class="actions">
+    <%= form.submit 'Create Book', class: 'btn btn-primary' %>
+  </div>
+<% end %>

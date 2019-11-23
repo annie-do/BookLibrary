@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><%= yield(:title) %></title>
+
+  </head>
+
+<body>
+<div class= "wrapper">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="home"><%= image_tag("owlLogo.png", class: "img-responsive", id: "navbar-logo") %><%= link_to "Owl Be Back Bookstore", home_path, class: 'nav-link' %></a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <% if account_signed_in? %>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href ="/accounts/edit">Hello, <%= current_account.username %></a>
+          </li>
+          <% else %>
+           <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href ="/accounts/sign_in">Login</a>
+           </li>
+           <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href ="/accounts/sign_up">Sign up</a>
+           </li>
+          <% end %>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/books/personal_library">Personal Library</a>
+          </li>
+            <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/reading_challenges">Reading Challenge</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/about">About</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/search">Store</a>
+          </li>
+          <% if account_signed_in? %>
+           <li class="nav-item mx-0 mx-lg-1">
+             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" rel="nofollow" data-method="delete" href ="/accounts/sign_out">Logout</a>
+           </li>
+          <% end %> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+      <% if flash[:alert] %>
+        <div class="alert alert-danger" role="alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+
+    </div>
+
+  </body>
+
+</html>

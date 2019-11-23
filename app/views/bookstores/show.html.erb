@@ -1,0 +1,30 @@
+<h1> <%= @bookstores.name %> Store</h1>
+<table class="table table-sm">
+     <thead>
+       <tr>
+         <th scope="col">Cover</th>
+         <th scope="col">Title</th>
+         <th scope="col">Author</th>
+         <th scope="col">Genre</th>
+         <th scope="col">Price</th>
+         <th scope="col">Rating</th>
+         <th scope="col"></th>
+       </tr>
+     </thead>
+     <tbody>
+      <% @bookstores.books.each do |temp| %>
+         <tr>
+           <td> <img src = <%= temp.cover_url%>
+                     width= "65"
+                     height="100"></td>
+           <td> <%= temp.title %> </td>
+           <td> <%= temp.author%> </td>
+           <td> <%= temp.genre%> </td>
+           <td> $<%= temp.price%> </td>
+           <td> __ out of 5 stars </td>
+           <td> <%= link_to 'View', book_path(temp) %></td>
+           <td> <%= link_to 'Add Book', new_book_path%></td>
+         </tr>
+      <% end %>
+     </tbody>
+</table>

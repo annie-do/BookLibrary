@@ -1,0 +1,231 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ * // = require_tree .
+ * //= require dataTables/jquery.dataTables
+ * // = require_self
+ */
+
+ // Custom bootstrap variables must be set or imported *before* bootstrap.
+ @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+ $white: #fff !default;
+ $gray-100: #f8f9fa !default;
+ $gray-200: #e9ecef !default;
+ $gray-300: #dee2e6 !default;
+ $gray-400: #ced4da !default;
+ $gray-500: #adb5bd !default;
+ $gray-600: #868e96 !default;
+ $gray-700: #495057 !default;
+ $gray-800: #343a40 !default;
+ $gray-900: #212529 !default;
+ $black: #000 !default;
+ 
+ $primary: #52bae4 !default;
+ $secondary: #91dcff !default;
+ body {
+   background-image: url(asset_path("LibraryBackground.jpg"));
+   background-size: cover;
+  }
+   .btn-xl {
+    padding: 1rem 1.75rem;
+    font-size: 1.25rem;
+  }
+ @mixin body-font() {
+    font-family: 'Lato';
+  }
+  .wrapper{
+    padding: 3rem;
+    background: #fff;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(107,107,107,1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(107,107,107,1);
+    box-shadow: 0px 0px 5px 0px rgba(107,107,107,1);
+    width: 80%;
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @mixin heading-font() {
+    font-weight: 700;
+    font-family: 'Montserrat';
+  }
+ #mainNav {
+    padding-top: 1rem;
+    @include body-font;
+    border-bottom-color: #226db3;
+
+    .navbar-brand {
+      color: $white;
+    }
+    .navbar-nav {
+      // margin-top: 1rem;
+      letter-spacing: 0.0625rem;
+      li.nav-item {
+        a.nav-link {
+          color: $white;
+          &:hover {
+            color: #52bae4;
+          }
+          &:active,
+          &:focus {
+            color: $white;
+          }
+          &.active {
+            color: #52bae4;
+          }
+        }
+      }
+    }
+    .navbar-toggler {
+      font-size: 80%;
+      padding: 0.8rem;
+    }
+  }
+  @media(min-width:1200px) {
+    #mainNav {
+      padding-top: 1.5rem;
+      padding-bottom: 1rem;
+      -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+      -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
+      transition: padding-top 0.3s, padding-bottom 0.3s;
+      .navbar-brand {
+        font-size: 2em;
+        -webkit-transition: font-size 0.3s;
+        -moz-transition: font-size 0.3s;
+        transition: font-size 0.3s;
+      }
+      .navbar-nav {
+        margin-top: 0;
+      }
+      .navbar-nav > li.nav-item > a.nav-link.active {
+        color: $white;
+        background: #52bae4;
+        &:active,
+        &:focus,
+        &:hover {
+          color: $white;
+          background: #52bae4;
+        }
+      }
+    }
+    #mainNav.navbar-shrink {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      .navbar-brand {
+        font-size: 1.5em;
+      }
+    }
+  }
+  a {
+    color: #52bae4;
+    &:focus,
+    &:hover,
+    &:active {
+      color: darken(#52bae4, 10%);
+    }
+  }
+  
+  .btn {
+    border-width: 2px;
+  }
+  
+  .bg-primary {
+    background-color: #52bae4 !important;
+  }
+  
+  .bg-secondary {
+    background-color: #91dcff !important;
+  }
+  
+  .text-primary {
+    color: #f8f9fa !important;
+  }
+  
+  .text-secondary {
+    color: #91dcff !important;
+  }
+
+  .btn-primary {
+    background-color: #52bae4;
+    border-color: #52bae4;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: darken(#52bae4, 10%);
+      border-color: darken(#52bae4, 10%);
+    }
+  }
+  
+  .btn-secondary {
+    background-color: #91dcff;
+    border-color: #91dcff;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: darken(#91dcff, 10%);
+      border-color: darken(#91dcff, 10%);
+    }
+  }
+  .footer {
+    background-color: $white;
+  }
+  
+  .copyright {
+    background-color: darken(#91dcff, 10%);
+  }
+  
+  .scroll-to-top {
+    z-index: 1042;
+    right: 1rem;
+    bottom: 1rem;
+    display: none;
+    a {
+      width: 3.5rem;
+      height: 3.5rem;
+      background-color: fade-out($gray-900, 0.5);
+      line-height: 3.1rem;
+    }
+  }
+
+.nav-item::after{
+  content:'';
+  display:block;
+  width:0px;
+  height:4px;
+  background:#226db3;
+  transition: 0.2s;
+  margin-top:-10px;
+}
+
+.nav-item:hover::after{width:100%;}
+
+
+.nav-link{padding:15px 5px;transition:0.2s;}
+
+.navbar-nav .nav-link {
+  
+  color:#000;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.navbar-nav .active > .nav-link{
+
+  width:100%;
+  height:51px;
+  
+border-bottom: .25rem solid transparent;
+border-bottom-color: #226db3;
+ 
+}

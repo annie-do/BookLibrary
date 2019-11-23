@@ -1,0 +1,48 @@
+<%# <main role="main" class="container"> %>
+<div class="container-box">
+
+    <div class="banner"></div>
+
+    <br><br>
+
+    <div class="header-text">
+        <span class="mytext1"><h1 style="color:#00cccc">30 Books Reading Challenge <i class="fa fa-pen" aria-hidden="true"></i></h1></span>
+    </div>
+
+    <hr>
+    <br>
+
+    <%= form_with model: @reading_challenge, local: true do |form| %>
+    
+        <div class="field">
+            <%= form.label :book_title %>
+            <%= form.text_field :book_title, class: 'form-control' %>
+        </div>
+        <br>
+        
+        <div class="field">
+            <%= form.label :comment %>
+            <%= form.text_field :comment, class: 'form-control' %>
+        </div>
+        <br>
+
+        <div class="field">
+            <%= form.label :reading_date %>
+            <%= form.text_field :reading_date, class: 'form-control', placeholder: "Apr 22 2019" %>
+        </div>
+        <br>
+
+        <div class="action" style="text-align:right">
+            <%= form.submit 'Update Reading Challenge', class: 'btn btn-primary' %>
+        </div>
+        
+    <% end %>
+
+    <br>
+    
+     <p style="text-align:left">
+        <%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Back'.html_safe, reading_challenges_path %>
+    </p>
+
+</div>
+<%# </main> %>

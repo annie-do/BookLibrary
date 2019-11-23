@@ -1,0 +1,28 @@
+<table class="table table-sm">
+     <thead>
+       <tr>
+         <th scope="col">Cover</th>
+         <th scope="col">Title</th>
+         <th scope="col">Author</th>
+         <th scope="col">Genre</th>
+         <th scope="col">Price</th>
+         <th scope="col">Rating</th>
+         <th scope="col"></th>
+       </tr>
+     </thead>
+     <tbody>
+      <% @books.each do |book| %>
+         <tr>
+           <td> <img src =<%= book.cover_url%>
+                     width= "65"
+                     height="100"></td>
+           <td> <%= book.title%> </td>
+           <td> <%= book.author%> </td>
+           <td> <%= book.genre%> </td>
+           <td> $<%= book.price%> </td>
+           <td> __ out of 5 stars </td>
+           <td> <%= link_to 'Add Book', new_book_path%></td>
+         </tr>
+      <% end %>
+     </tbody>
+</table>

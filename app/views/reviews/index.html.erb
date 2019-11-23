@@ -1,0 +1,19 @@
+<table class="table table-sm">
+     <thead>
+       <tr>
+         <th scope="col">Rating</th>
+         <th scope="col">Comment</th>
+         <th scope="col">Book Id</th>
+         <th scope="col"></th>
+       </tr>
+     </thead>
+     <tbody>
+      <% @reviews.each do |review| %>
+         <tr>
+           <td> <%= review.rating%> </td>
+           <td> <%= review.comment%> </td>
+           <td><%= review.book_id%> </td>
+         </tr>
+      <% end %>
+     </tbody>
+</table>
