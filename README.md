@@ -1,4 +1,4 @@
-# xxx (Project Nickname)
+# xxx (Project - BookLibrary)
 
 ## How to Run the Web App (Instructions for the Instructors)
 
